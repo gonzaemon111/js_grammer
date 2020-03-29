@@ -47,3 +47,35 @@ statements }
 var f = ([a, b] = [1, 2], {x: c} = {x: a + b}) => a + b + c;
 f(); // 6
 ```
+
+#### メソッド呼び出しパターン
+
+```js
+//メソッド呼び出しパターン
+var myObject = {
+  value: 10,
+  show: function() {
+    console.log(this.value);
+  }
+}
+myObject.show(); // 10
+
+// thisにはmyObjectが入っています。
+```
+
+#### メソッド呼び出し と 関数呼び出し
+
+```js
+myObject.show(); // メソッド呼び出し
+show(); // 関数呼び出し
+```
+
+#### 関数呼び出しパターン
+
+```js
+function show() {
+  console.log(this);
+  this.value = 1; // 注１
+}
+show(); // thisはグローバルオブジェクトをさす
+```
